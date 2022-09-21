@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Calculadora funcion flecha</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="inputs">
+            <input type="number" id="n1" placeholder="">
+            <input type="number" id="n2" placeholder="">
+        </div>
+
+        <div id="Botones">
+            <button id="suma">+</button>
+            <button id="resta">-</button>
+            <button id="multiplicacion">x</button>
+            <button id="division">/</button>
+        </div>
+
+        <button id="calcular">Calcular</button>
+
+        <div id="Cresultado">
+            <output id="resultado"></output>
+        </div>
+
+    </div>
+
+    <script>
+        let op;
+        document.querySelector('#suma').addEventListener('click', () => {
+            op = '+';
+        });
+        document.querySelector('#resta').addEventListener('click', () => {
+            op = '-';
+        });
+        document.querySelector('#multiplicacion').addEventListener('click', () => {
+            op = '*';
+        });
+        document.querySelector('#division').addEventListener('click', () => {
+            op = '/';
+        });
+
+        document.querySelector('#calcular').addEventListener('click', () => {
+            const n1 = parseInt(document.querySelector('#n1').value);
+            const n2 = parseInt(document.querySelector('#n2').value);
+
+            let resultado;
+            switch (op) {
+                case '+':
+                    resultado = n1 + n2;
+                break;
+                case '*':
+                    resultado = n1 * n2;
+                break;
+                case '-':
+                    resultado = n1 - n2;
+                break;
+                case '/':
+                    resultado = n1 / n2;
+                break;
+                default:
+                    window.alert("Selecciona un operación");
+                break;
+            }
+
+            document.querySelector('#resultado').innerHTML = resultado;
+        });
+
+    </script>
+
+</body>
+
+</html>
